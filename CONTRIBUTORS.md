@@ -28,3 +28,7 @@ This project exists because of your time, effort, and curiosity.
 - **GitHub:** https://github.com/Digvijay-x1  
 - **About:** Student at IIITA. Beginner at open source. Grateful to be a part of OpenCode program.
 
+
+- **Name:** adityashirsatrao007
+- **GitHub:** https://github.com/adityashirsatrao007
+- **About:** I pretend I know Java, Spring Boot, and React. The compiler, debugger, and bugs tell a different story ;)
