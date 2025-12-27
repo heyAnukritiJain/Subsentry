@@ -81,12 +81,17 @@ This project exists because of your time, effort, and curiosity.
 - **GitHub:** https://github.com/Apoorv012
 - **About:** Third-year B.Tech student in Computer Science. Passionate about Backend development"
 
+- **Name:** Mannat Jain
+- **GitHub:** https://github.com/MK-codes365
+- **About:** First-Year B.Tech student at IIIT Allahabad. Passionate about Competitive Programming and Open Source
+
 - **Name:** Akshat Parmar
 - **GitHub:** https://github.com/AkshaTGA
 - **About:** Second-year B.Tech student in Computer Science. Passionate about Backend development :]"
+
 - **Name:** Krishna Sikheriya  
-  **GitHub:** https://github.com/Krishna200608  
-  **About:** 3rd Year student at IIIT Allahabad eager to learn full-stack development and open-source contributions.
+- **GitHub:** https://github.com/Krishna200608  
+- **About:** 3rd Year student at IIIT Allahabad eager to learn full-stack development and open-source contributions.
 
 - **Name:** Vrajkumar Shah
 - **GitHub:** https://github.com/vraj826
