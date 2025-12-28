@@ -125,3 +125,19 @@ This project exists because of your time, effort, and curiosity.
 - **Name:** Lavay Garg
 - **GitHub:** https://github.com/lavaygarg
 - **About:** Fresher @IIITA
+
+- **Name:** Aman Sharma
+- **GitHub:** https://github.com/amansharma264
+- **About:** Third-year B.Tech student in ETE. Passionate about Backend development.
+
+- **Name:** Sanchita Anil Agte
+- **GitHub:** https://github.com/san-dae 
+- **About:** chronically online, new to WebD
+
+- **Name:** Kamakshi Gupta  
+- **GitHub:** https://github.com/kamakshi-gupta  
+- **About:** IT Sophomore at IIIT Allahabad, exploring open source and learn along the way.
+
+- **Name:** Krish Sushil Kinger
+- **GitHub:** https://github.com/KRISHH-33
+- **About:** Mera naam Krish hai aur mujhe Coffee peena bohot pasand hai.
