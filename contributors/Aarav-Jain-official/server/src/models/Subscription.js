@@ -1,6 +1,6 @@
-const mongoose=require("mongoose")
+import { Schema, model } from 'mongoose';
 
-const subscriptionSchema = new mongoose.Schema(
+const subscriptionSchema = new Schema(
   {
     userId: {
       type: String,
@@ -36,6 +36,4 @@ const subscriptionSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Subscription = mongoose.model('Subscription', subscriptionSchema);
-
-module.exports = Subscription;
+export const Subscription = model('Subscription', subscriptionSchema);

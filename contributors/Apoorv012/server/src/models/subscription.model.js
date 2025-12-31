@@ -1,41 +1,56 @@
-const mongoose=require("mongoose")
+import mongoose from "mongoose";
+const { Schema } = mongoose;
 
-const subscriptionSchema = new mongoose.Schema(
+const subscriptionSchema = new Schema(
   {
     userId: {
       type: String,
       required: true,
+      index: true,
     },
+
     name: {
       type: String,
-      required: true,
+      required: true
     },
+
     amount: {
       type: Number,
       required: true,
     },
+
     billingCycle: {
       type: String,
-      enum: ['monthly', 'yearly'],
+      enum: ["monthly", "yearly"],
       required: true,
     },
+
     renewalDate: {
       type: Date,
       required: true,
     },
+
     isTrial: {
       type: Boolean,
       default: false,
     },
+
+    trialEndsAt: {
+      type: Date,
+    },
+
     source: {
       type: String,
-      enum: ['manual', 'email'],
-      default: 'manual',
+      enum: ["manual", "gmail", "other"],
+      default: "manual",
     },
   },
   { timestamps: true }
 );
 
+
+subscriptionSchema.index({ userId: 1 });
+
 const Subscription = mongoose.model('Subscription', subscriptionSchema);
 
-module.exports = Subscription;
+export default Subscription;
