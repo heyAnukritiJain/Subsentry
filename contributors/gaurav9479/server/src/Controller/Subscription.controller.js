@@ -25,7 +25,7 @@ export const createSubscription = async (req, res) => {
 export const getSubscription = async (req, res) => {
     try {
         const subs = await Subscription.find({ userId: req.user.id });
-        // Use 200 for "OK"
+
         return res.status(200).json(subs);
     } catch (error) {
         console.error("Get Error:", error);
