@@ -5,3 +5,8 @@ export * from './tooltip';
 export * from './dropdown-menu';
 export * from './tabs';
 export * from './aceternity';
+export * from './input';
+export * from './label';
+export * from './select';
+export * from './switch';
+export * from './textarea';

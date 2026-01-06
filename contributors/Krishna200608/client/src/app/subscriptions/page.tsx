@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useAuth } from '@clerk/nextjs';
+import Link from 'next/link';
 import { Plus, Loader2, RefreshCw } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import DashboardLayout from '../components/DashboardLayout';
@@ -177,10 +178,12 @@ export default function SubscriptionsPage() {
             <RefreshCw className={cn('w-4 h-4', isLoading && 'animate-spin')} />
           </Button>
 
-          <ShimmerButton className="flex items-center gap-2 px-4 py-2.5">
-            <Plus className="w-4 h-4" />
-            <span className="hidden sm:inline">Add New</span>
-          </ShimmerButton>
+          <Link href="/subscriptions/new">
+            <ShimmerButton className="flex items-center gap-2 px-4 py-2.5">
+              <Plus className="w-4 h-4" />
+              <span className="hidden sm:inline">Add New</span>
+            </ShimmerButton>
+          </Link>
         </div>
       </div>
 

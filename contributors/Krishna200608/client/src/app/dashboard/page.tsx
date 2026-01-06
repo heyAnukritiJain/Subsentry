@@ -356,7 +356,7 @@ export default function Dashboard() {
             <h3 className="text-lg font-semibold text-white mb-4">Quick Actions</h3>
             <div className="space-y-3">
               <Link 
-                href="/subscriptions"
+                href="/subscriptions/new"
                 className="flex items-center gap-3 p-3 rounded-lg bg-[#1a1a1a] hover:bg-[#2a2a2a] transition-colors"
               >
                 <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
