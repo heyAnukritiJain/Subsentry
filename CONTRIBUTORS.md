@@ -191,10 +191,6 @@ This project exists because of your time, effort, and curiosity.
 - **GitHub:** https://github.com/Humanshere 
 - **About:** IT-BI Second year at IIITA
 
-- **Name:** Ishan Raj Singh
-- **GitHub:** https://github.com/ishanrajsingh 
-- **About:** BTECH at Amity Noida
-
 - **Name:** Utkarsh Pandey  
 - **GitHub:** https://github.com/utkarshp579  
 - **About:** Full-Stack Developer , AI-ML Enthusiast
