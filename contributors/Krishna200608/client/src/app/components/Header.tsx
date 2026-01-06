@@ -1,7 +1,8 @@
 'use client';
 
 import { UserButton } from '@clerk/nextjs';
-import { Bell, Search, Zap } from 'lucide-react';
+import Image from 'next/image';
+import { Bell, Search } from 'lucide-react';
 import { MobileMenuButton } from './Sidebar';
 
 interface HeaderProps {
@@ -20,8 +21,15 @@ export default function Header({ title, subtitle, onMobileMenuClick }: HeaderPro
         
         {/* Mobile Logo */}
         <div className="md:hidden flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-            <Zap className="w-4 h-4 text-white" />
+          <div className="w-8 h-8 rounded-lg overflow-hidden">
+            <Image
+              src="/logo.png"
+              alt="SubSentry Logo"
+              width={32}
+              height={32}
+              className="w-full h-full object-contain"
+              priority
+            />
           </div>
         </div>
 

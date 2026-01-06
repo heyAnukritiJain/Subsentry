@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useAuth } from '@clerk/nextjs';
 import { Plus, Loader2, RefreshCw } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import DashboardLayout from '../components/DashboardLayout';
 import {
   SubscriptionCard,
@@ -19,6 +20,8 @@ import {
 } from '../components/subscriptions';
 import { Subscription } from '@/lib/api';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import { ShimmerButton } from '@/components/ui/aceternity';
 
 // Mock data for demonstration (will be replaced with real API call)
 const mockSubscriptions: Subscription[] = [
@@ -278,19 +281,20 @@ export default function SubscriptionsPage() {
 
           <ViewToggle view={view} onViewChange={setView} />
 
-          <button
+          <Button
+            variant="secondary"
+            size="icon"
             onClick={handleRefresh}
             disabled={isLoading}
-            className="p-2 rounded-lg border border-[#2a2a2a] bg-[#0f0f0f] hover:border-[#3a3a3a] transition-colors text-gray-400 hover:text-white disabled:opacity-50"
             title="Refresh"
           >
             <RefreshCw className={cn('w-4 h-4', isLoading && 'animate-spin')} />
-          </button>
+          </Button>
 
-          <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium rounded-lg hover:opacity-90 transition-opacity shadow-lg shadow-blue-500/20">
+          <ShimmerButton className="flex items-center gap-2 px-4 py-2.5">
             <Plus className="w-4 h-4" />
             <span className="hidden sm:inline">Add New</span>
-          </button>
+          </ShimmerButton>
         </div>
       </div>
 
@@ -336,19 +340,25 @@ export default function SubscriptionsPage() {
           </div>
 
           {/* Subscription Grid/List */}
-          <div className={cn(
-            view === 'grid'
-              ? 'grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4'
-              : 'flex flex-col gap-3'
-          )}>
-            {filteredAndSortedSubscriptions.map((subscription) => (
-              <SubscriptionCard
-                key={subscription._id}
-                subscription={subscription}
-                view={view}
-              />
-            ))}
-          </div>
+          <motion.div 
+            layout
+            className={cn(
+              view === 'grid'
+                ? 'grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4'
+                : 'flex flex-col gap-3'
+            )}
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredAndSortedSubscriptions.map((subscription, index) => (
+                <SubscriptionCard
+                  key={subscription._id}
+                  subscription={subscription}
+                  view={view}
+                  index={index}
+                />
+              ))}
+            </AnimatePresence>
+          </motion.div>
         </>
       )}
     </DashboardLayout>
