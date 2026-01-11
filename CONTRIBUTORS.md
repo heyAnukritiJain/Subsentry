@@ -101,6 +101,12 @@ Copy-paste this row at the **end of the table** and fill your details:
   **GitHub:** https://github.com/Siddharthjagtap346  
   **About:** A CSE student interested in backend development and open-source contributions.
 
+
+  
+- **Name:** Aakriti Singh  
+- **GitHub:** https://github.com/AakritiSingh05
+- **About:** CSE student and frontend developer who loves crafting bold, eye-catching, and interactive websites.
+
 ---
 
 ## 🧩 Notes
