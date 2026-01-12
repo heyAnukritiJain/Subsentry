@@ -1,24 +1,26 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { SignedIn, SignedOut, SignInButton, SignUpButton } from '@clerk/nextjs';
 import Link from 'next/link';
 
 const INTRO_STORAGE_KEY = 'subsentry_intro_seen';
 
 export default function Home() {
-  const router = useRouter();
+  const searchParams = useSearchParams();
   const [showIntro, setShowIntro] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
+  const [videoError, setVideoError] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    const forceIntro = searchParams?.get('intro') === '1';
     const seen = window.localStorage.getItem(INTRO_STORAGE_KEY);
-    if (!seen) {
+    if (forceIntro || !seen) {
       setShowIntro(true);
     }
-  }, []);
+  }, [searchParams]);
 
   const finishIntro = useCallback(() => {
     if (typeof window !== 'undefined') {
@@ -27,9 +29,8 @@ export default function Home() {
     setIsExiting(true);
     setTimeout(() => {
       setShowIntro(false);
-      router.push('/sign-up');
     }, 300);
-  }, [router]);
+  }, []);
 
   const handleSkip = useCallback(() => {
     finishIntro();
@@ -51,8 +52,16 @@ export default function Home() {
             playsInline
             preload="auto"
             onEnded={finishIntro}
-            onError={finishIntro}
+            onError={() => {
+              setVideoError(true);
+              finishIntro();
+            }}
           />
+          {videoError && (
+            <div className="absolute inset-0 flex items-center justify-center text-white text-sm bg-black/70">
+              Video failed to load. Skipping intro.
+            </div>
+          )}
           <button
             type="button"
             onClick={handleSkip}
