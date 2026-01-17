@@ -1,9 +1,13 @@
 import { UserButton } from "@clerk/nextjs";
 import SummaryWidgets from "@/components/SummaryWidgets";
+import UpcomingRenewals from "@/components/UpcomingRenewals";
 
 export const dynamic = "force-dynamic";
 
 interface SubscriptionData {
+  _id: string;
+  name: string;
+  renewalDate: string;
   price?: number;
   amount?: number;
   hasTrial?: boolean;
@@ -75,13 +79,15 @@ export default async function Dashboard() {
         <div>
           <h1 className="text-3xl font-bold">Dashboard</h1>
           <p className="text-gray-500 dark:text-gray-400 mt-1">
-            Welcome back, here's your subscription overview.
+            Welcome back, here&apos;s your subscription overview.
           </p>
         </div>
         <UserButton />
       </div>
 
       <SummaryWidgets stats={stats} />
+
+      <UpcomingRenewals subscriptions={subscriptions} />
 
       <div className="p-6 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
         <h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
