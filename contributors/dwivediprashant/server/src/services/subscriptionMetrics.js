@@ -1,3 +1,12 @@
+const getMonthlyAmount = (subscription) => {
+  if (!subscription || typeof subscription !== "object") {
+    return 0;
+  }
+
+  const { amount, billingCycle, status } = subscription;
+
+  if (status && String(status).toLowerCase() !== "active") {
+    return 0;
 const normalizeAmount = (subscription) => {
   if (!subscription || typeof subscription !== "object") {
     return null;
@@ -12,6 +21,16 @@ const normalizeAmount = (subscription) => {
   const numericAmount = Number(amount);
 
   if (!Number.isFinite(numericAmount) || numericAmount <= 0) {
+    return 0;
+  }
+
+  const normalizedCycle = String(billingCycle || "").toLowerCase();
+
+  if (normalizedCycle === "yearly") {
+    return numericAmount / 12;
+  }
+
+  if (normalizedCycle === "monthly") {
     return null;
   }
 
@@ -38,12 +57,14 @@ const getYearlyAmount = (subscription) => {
   return 0;
 };
 
+const calculateMonthlySpend = (subscriptions = []) => {
 const calculateYearlySpend = (subscriptions = []) => {
   if (!Array.isArray(subscriptions) || subscriptions.length === 0) {
     return 0;
   }
 
   const total = subscriptions.reduce(
+    (sum, subscription) => sum + getMonthlyAmount(subscription),
     (sum, subscription) => sum + getYearlyAmount(subscription),
     0,
   );
@@ -52,6 +73,8 @@ const calculateYearlySpend = (subscriptions = []) => {
 };
 
 module.exports = {
+  getMonthlyAmount,
+  calculateMonthlySpend,
   getYearlyAmount,
   calculateYearlySpend,
 };
